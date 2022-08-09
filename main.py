@@ -1,0 +1,6 @@
+
+
+
+# define the cost function
+
+
