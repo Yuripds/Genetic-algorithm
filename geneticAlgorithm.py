@@ -12,16 +12,6 @@ def populationGenerator(popSize, ngenes, tipo, vmax=5):
 
     return population
 
-
-def fitFunction(cromossomo):
-
-    # trocar essa função pela funçaõ de taxa de transmissão
-    score = cromossomo**2
-
-    return score
-
-
-# não entendi esse k igual a 2
 # como meu objetivo é maximizar uma função troquei o sinal de '<' para '>' no escopo do IF
 def selection(population, scores, k=2):
 	selection_ix = np.random.randint(len(population))
