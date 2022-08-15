@@ -1,4 +1,4 @@
-def allocPower(gamaL,alpha):
+def alloc_power(gamaL,alpha):
   p_list = []
 
   den = 0

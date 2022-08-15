@@ -3,7 +3,7 @@ from random import randint
 from random import random
 
 
-def populationGenerator(popSize, ngenes, tipo, vmax=5):
+def population_generator(popSize, ngenes, tipo, vmax=5):
 
     if tipo == 'bin':
         population = np.random.randint(2, size=(popSize, ngenes))
@@ -41,15 +41,15 @@ def mutation(cromossomo, mutationRate):
     return 0
 
 
-def runGA(fitFunction, n_iter, population, crossRate, mutationRate):
+def run(fitFunction, n_iter, population, crossRate, mutationRate,gama):
 
     cont = 0
     best = 0
-    best_eval = fitFunction(population[0])
+    best_eval = fitFunction(population[0],gama)
 
     while (cont < n_iter):
 	
-        scores = [fitFunction(i) for i in population]
+        scores = [fitFunction(i,gama) for i in population]
         for i in range(population.shape[0]):
             if scores[i] > best_eval:
                 best, best_eval = population[i], scores[i]

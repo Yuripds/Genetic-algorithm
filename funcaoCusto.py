@@ -1,7 +1,7 @@
 import numpy as np
 import allocacaoPotencia as ap
 
-def dataRate(gamaUser,p_list,n_clusters):
+def data_rate(gamaUser,p_list,n_clusters):
     w =100
     B = 180*(10**3)
     N0 = 10**(-17.3)
@@ -28,23 +28,22 @@ def dataRate(gamaUser,p_list,n_clusters):
 
     return r
 
-def sumDataRate(cromossomo):
+def sum_data_rate(cromossomo,gama):
 
     alpha =0.3
     n_clusters = len(np.unique(cromossomo))
 
-    gama = [] ### chamada de função de desvanecimento global 
 
     gamaClusters = []
     for i in np.unique(cromossomo):
         gamaClusters.append(gama[cromossomo==i].tolist())
 
-    p_list =[ap.allocPower(i,alpha) for i in gamaClusters]
+    p_list =[ap.alloc_power(i,alpha) for i in gamaClusters]
     
 
     data_rates=[]
     for ix, val in enumerate(gamaClusters):
-        data_rates.append(dataRate(val,p_list[ix],n_clusters))
+        data_rates.append(data_rate(val,p_list[ix],n_clusters))
 
     R_global = []
     for m in data_rates:
