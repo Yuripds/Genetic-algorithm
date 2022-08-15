@@ -28,6 +28,9 @@ def data_rate(gamaUser,p_list,n_clusters):
 
     return r
 
+
+
+##### não retorna nada
 def sum_data_rate(cromossomo,gama):
 
     alpha =0.3
