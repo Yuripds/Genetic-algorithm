@@ -34,6 +34,6 @@ gama = desvanecimento_global_usuarios(ngenes)
 #### Params do AG 
 n_iter=100
 population=populacao
-crossRate =0.9
+crossRate =0.7
 mutationRate=0.01
 [best, best_eval] = ga.run(fc.sum_data_rate, n_iter, population, crossRate, mutationRate,gama)
