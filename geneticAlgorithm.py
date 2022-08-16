@@ -25,7 +25,7 @@ def crossover(parent01, parent02, cross_rate):
     children01 = parent01.copy()
     children02 = parent02.copy()
     if random() > cross_rate:
-        cross_point = np.random.randint(len(parent01)-2, size=1)[0]
+        cross_point = abs(np.random.randint(len(parent01)-2, size=1)[0])
         children01 = parent01[:cross_point]+ parent02[cross_point:]
         children02 = parent02[:cross_point] + parent01[cross_point:]
 
@@ -35,7 +35,7 @@ def crossover(parent01, parent02, cross_rate):
 def mutation(cromossomo, mutationRate):
     for i in range(len(cromossomo)):
         if random() > mutationRate:
-            cromossomo[i] = 1-cromossomo[i]
+            cromossomo[i] = abs(1-cromossomo[i])
     return 0
 
 
