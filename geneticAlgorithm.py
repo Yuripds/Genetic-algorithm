@@ -22,14 +22,12 @@ def selection(population, scores, k=2):
 
 
 def crossover(parent01, parent02, cross_rate):
-    children01 = parent01.copy().tolist()
-    children02 = parent02.copy().tolist()
+    children01 = parent01.copy()
+    children02 = parent02.copy()
     if random() > cross_rate:
         cross_point = np.random.randint(len(parent01)-2, size=1)[0]
-        children01 = parent01[:cross_point].tolist(
-        ) + parent02[cross_point:].tolist()
-        children02 = parent02[:cross_point].tolist(
-        ) + parent01[cross_point:].tolist()
+        children01 = parent01[:cross_point]+ parent02[cross_point:]
+        children02 = parent02[:cross_point] + parent01[cross_point:]
 
     return [children01, children02]
 
@@ -46,20 +44,21 @@ def run(fitFunction, n_iter, population, crossRate, mutationRate,gama):
     cont = 0
     best = 0
     best_eval = fitFunction(population[0],gama)
+    population = population.tolist()
 
     while (cont < n_iter):
 	
         scores = [fitFunction(i,gama) for i in population]
-        for i in range(population.shape[0]):
+        for i in range(len(population)):
             if scores[i] > best_eval:
                 best, best_eval = population[i], scores[i]
                 print(">%d, new best f(%s) = %.3f" % (cont ,  population[i], scores[i]))
         
-        parents = [selection(population,scores) for _ in range(population.shape[0])]
+        parents = [selection(population,scores) for _ in range(len(population))]
 
         # criandao a nova geração
         children = []
-        for i in range(0, population.shape[0], 2):
+        for i in range(0, len(population), 2):
             parent01,parent02 = parents[i], parents[i+1]
             for c in crossover(parent01, parent02, crossRate):
                 mutation(c, mutationRate)
