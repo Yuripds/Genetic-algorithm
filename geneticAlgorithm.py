@@ -41,6 +41,8 @@ def mutation(cromossomo, mutationRate):
 
 def run(fitFunction, n_iter, population, crossRate, mutationRate,gama):
 
+
+    ###### varificar o valor atribuido a best_eval
     cont = 0
     best = 0
     best_eval = fitFunction(population[0],gama)
