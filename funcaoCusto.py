@@ -10,7 +10,7 @@ def data_rate(gamaUser,p_list,n_clusters):
     # ordenados na ordem crescente
     zipped_pairs = zip(gamaUser, p_list)
     plistSorted = [x for _, x in sorted(zipped_pairs)]
-    gamaUserSorted = [_ for _, x in sorted(zipped_pairs)]
+    gamaUserSorted = sorted(gamaUser)
 
     r=[]
     for idx in range(len(gamaUserSorted)):

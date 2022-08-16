@@ -22,8 +22,8 @@ def selection(population, scores, k=2):
 
 
 def crossover(parent01, parent02, cross_rate):
-    children01 = parent01.copy()
-    children02 = parent02.copy()
+    children01 = parent01.copy().tolist()
+    children02 = parent02.copy().tolist()
     if random() > cross_rate:
         cross_point = np.random.randint(len(parent01)-2, size=1)[0]
         children01 = parent01[:cross_point].tolist(
