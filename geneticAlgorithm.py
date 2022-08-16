@@ -35,7 +35,7 @@ def crossover(parent01, parent02, cross_rate):
 def mutation(cromossomo, mutationRate):
     for i in range(len(cromossomo)):
         if random() > mutationRate:
-            cromossomo[i] = abs(1-cromossomo[i])
+            cromossomo[i] = abs(cromossomo[i]-1)
     return 0
 
 
