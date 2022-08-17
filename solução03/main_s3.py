@@ -6,7 +6,6 @@ import numpy as np
 from coeficienteDesvanecimento_GlobalLib import coeficiente_desvanecimento
 
 
-
 def desvanecimento_global_usuarios(qtd_usuarios):
   cg_obj = coeficiente_desvanecimento.Coeficiente_de_Desvanecimento()
   d=np.random.uniform(500,2000,qtd_usuarios)
@@ -26,14 +25,17 @@ tipo = 'int'
 vmax = 25
 
 # inicializando população
-populacao =  ga.population_generator(popSize,ngenes,tipo,vmax)
+populacao_01 =  ga.population_generator(popSize,ngenes,tipo,vmax)
+populacao_02 =  ga.population_generator(popSize,ngenes,'float')
 
 #### Ganho de canal
 gama = desvanecimento_global_usuarios(ngenes)
 
+
+#### mudar esses parametros #####
 #### Params do AG 
 n_iter=100
-population=populacao
+population=populacao_01
 crossRate =0.7
 mutationRate=0.01
 [best, best_eval] = ga.run(fc.sum_data_rate, n_iter, population, crossRate, mutationRate,gama)

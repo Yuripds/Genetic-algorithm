@@ -7,6 +7,8 @@ def population_generator(popSize, ngenes, tipo, vmax=5):
 
     if tipo == 'bin':
         population = np.random.randint(2, size=(popSize, ngenes))
+    elif tipo =='float':
+        population = np.random.rand(popSize,ngenes)
     else:
         population = np.random.randint(vmax, size=(popSize, ngenes))
 
