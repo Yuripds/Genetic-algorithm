@@ -38,6 +38,6 @@ n_iter=100
 population=populacao_01
 crossRate =0.7
 mutationRate=0.01
-[best, best_eval] = ga.run(fc.sum_data_rate, n_iter, population, crossRate, mutationRate,gama)
+[best, best_eval] = ga.run(fc.sum_data_rate, n_iter, populacao_01,populacao_02, crossRate, mutationRate,gama)
 print("best config: ",best)
 print("best coust: ",best_eval)
